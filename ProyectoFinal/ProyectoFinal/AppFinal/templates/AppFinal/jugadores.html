@@ -1,0 +1,17 @@
+<!-- Template hijo de padre.html que funciona de hogar para los Jugadores-->
+{% extends "AppFinal/padre.html" %}
+{% load static %}
+
+{% block dynamicContent %}
+    <!-- Contenido de la página. El contenido varía dependiendo de la view-->
+    <div class="container-fluid">
+        <!-- Titulo y descripción-->
+        <h1 class="mt-4">Jugadores</h1>
+        <h3>Esta es la página de Jugadores.</h3>
+        <p>Los Jugadores son quienes juegan los Videojuegos creados por los Desarrolladores y participan de los Desafíos Gamer.</p>
+        <!-- Botones-->
+        <a class="btn btn-secondary" href="{% url 'JugadoresLeer' %}">Leer o Eliminar Jugadores</a>
+        <a class="btn btn-secondary" href="{% url 'JugadoresBusqueda' %}">Buscar Jugador</a>
+        <a class="btn btn-secondary" href="{% url 'JugadoresFormulario' %}">Crear Nuevo Jugador</a>
+    </div>
+{% endblock %}

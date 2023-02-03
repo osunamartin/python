@@ -1,0 +1,24 @@
+<!-- Template hijo de padre.html donde se leen todos los Desarrolladores-->
+{% extends "AppFinal/padre.html" %}
+{% load static %}
+
+{% block dynamicContent %}
+    <!-- Contenido de la página. El contenido varía dependiendo de la view-->
+    <div class="container-fluid">
+        <!-- Boton de retorno-->
+        <br><a class="btn btn-secondary" href="{% url 'Desarrolladores' %}">Volver a Desarrolladores</a>
+        <!-- Titulo y descripcion-->
+        <h1 class="mt-4">Leer Desarrolladores</h1>
+        <h3>Resultados de la lectura</h3><br>
+
+        <!-- Se itera por todos los Desarrolladores y se los imprime-->
+        {% for desarrollador in desarrolladores %}
+            {{desarrollador}}<br>
+            <button><a href="{% url 'DesarrolladoresEditar' desarrollador.nombre %}">Editar</a></button>
+            <button><a href="{% url 'DesarrolladoresEliminar' desarrollador.nombre %}">Eliminar</a></button><br><br>
+        {% endfor %}
+
+        <!-- Boton-->
+        <br><a class="btn btn-secondary" href="{% url 'DesarrolladoresFormulario' %}">Crear Nuevo Desarrollador</a>
+    </div>
+{% endblock %}

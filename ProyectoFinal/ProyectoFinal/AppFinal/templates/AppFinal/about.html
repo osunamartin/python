@@ -1,0 +1,15 @@
+<!-- Template hijo de padre.html en el que se describe brevemente a los creadores del sitio-->
+{% extends "AppFinal/padre.html" %}
+{% load static %}
+
+{% block dynamicContent %}
+    <!-- Contenido de la página. El contenido varía dependiendo de la view-->
+    <div class="container-fluid">
+        <!-- Titulo y descripcion-->
+        <h1 class="mt-4">Sobre nosotros :)</h1>
+        <h3>Breve descripción de los desarrolladores de esta web.</h3>
+        <!-- Descripciones de Mario y Martin-->
+        <p>Mario Facundo Serra tiene 22 años. Es técnico de soporte IT y estudiante de programación. Para este Proyecto Final, hizo los modelos y vistas para Videojuegos, Desarrolladores, Jugadores y Desafíos Gamer junto con sus respectivos CRUD, desarrolló la funcionalidad de avatares para los usuarios, y escribió el documento README.md y los casos de prueba.</p></p>
+        <p>Martin Osuna tiene 25 años. Es ilusionista y aspirante a programador. Se encargó de realizar el modelo Equipos con sus respectivos CRUD junto con la parte del Login/Registro/Logout/Edición de Perfil y esta pestaña de información. Es también quien grabó el video de muestra adjunto al trabajo, describiendo las funciones de la web.</p></p>
+    </div>
+{% endblock %}

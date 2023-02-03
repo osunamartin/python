@@ -1,0 +1,72 @@
+<!-- Esta es la plantilla HTML padre de la cual heredan todas las otras-->
+<!--
+..
+..
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Proyecto Final</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'AppFinal/css/styles.css' %}" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="d-flex" id="wrapper">
+            <!-- Sidebar-->
+            <div class="border-end bg-white" id="sidebar-wrapper">
+                <div class="sidebar-heading border-bottom bg-light">Proyecto Final</div>
+                <div class="list-group list-group-flush">
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'Inicio' %}">Inicio</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'Videojuegos' %}">Videojuegos</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'Desarrolladores' %}">Desarrolladores</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'Jugadores' %}">Jugadores</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'Equipos' %}">Equipos</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'DesafiosGamer' %}">Desafios Gamer</a>
+                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="{% url 'About' %}">About/Nosotros</a>
+                </div>
+            </div>
+            <!-- Page content wrapper-->
+            <div id="page-content-wrapper">
+                <!-- Top navigation-->
+                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                    <div class="container-fluid">
+                        <button class="btn btn-primary" id="sidebarToggle">Ocultar/Mostrar Menu Lateral</button>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                                {% if not request.user.is_authenticated %}
+                                <li class="nav-item active"><a class="nav-link" href="{% url 'Login' %}"><p style="color:black">Login</p></a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'Register' %}"><p style="color:black">Registrarse</p></a></li>
+                                {% endif %}
+                                {% if request.user.is_authenticated %}
+                                <li class="nav-item"><a class="nav-link" href="{% url 'AgregarAvatar' %}"><p style="color:black">Agregar Avatar</p></a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'EditarPerfil' %}"><p style="color:black">Editar Perfil</p></a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'Logout' %}"><p style="color:black">Cerrar Sesión</p></a></li>
+                                {% endif %}
+                                <li class="nav-item dropdown">
+                                    <!-- Había un menú dropdown acá, lo saqué-->
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!-- Page content-->
+                {% block dynamicContent %}
+                    <!-- El contenido de la pagina va a variar dependiendo de la vista. Visitar cada template en templates\AppFinal para ver cada vista-->
+                {% endblock %}
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'AppFinal/js/scripts.js' %}"></script>
+    </body>
+</html>

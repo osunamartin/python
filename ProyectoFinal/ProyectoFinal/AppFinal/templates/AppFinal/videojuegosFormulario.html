@@ -1,0 +1,19 @@
+<!-- Template hijo de padre.html donde se crean los Videojuegos-->
+{% extends "AppFinal/padre.html" %}
+{% load static %}
+
+{% block dynamicContent %}
+    <!-- Contenido de la página. El contenido varía dependiendo de la view-->
+    <div class="container-fluid">
+        <br><a class="btn btn-secondary" href="{% url 'Videojuegos' %}">Volver a Videojuegos</a>
+        <h1 class="mt-4">Crear un nuevo Videojuego</h1>
+        <p>En esta página podes crear un nuevo Videojuego.</p>
+        <p>Ingresá los datos del Videojuego.</p>
+
+        <!-- Se usa un formulario de Django (más en forms.py) para minimizar el uso de HTML-->
+        <form action="/AppFinal/videojuegosFormulario" method="POST">{% csrf_token %}
+            <table>{{ formulario.as_table }}</table><br>
+            <input type="submit" value="Crear">
+        </form>
+    </div>
+{% endblock %}

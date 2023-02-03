@@ -1,0 +1,21 @@
+<!-- Template hijo de padre.html que sirve de landing page para el sitio-->
+{% extends "AppFinal/padre.html" %}
+{% load static %}
+
+{% block dynamicContent %}
+    <!-- Contenido de la página. El contenido varía dependiendo de la view-->
+    <div class="container-fluid">
+        <!-- Titulo y descripcion-->
+        <h1 class="mt-4">Inicio</h1>
+        <h3>Esta es la página de inicio al sitio.</h3>
+        <!-- Mensaje variante en base a posibles interacciones con login/register-->
+        <p style="color:red">{{mensaje}}</p>
+        <!-- Si el usuario está logeado, muestra su avatar-->
+        {% if request.user.is_authenticated %}
+            <img src="{{ avatar }}" alt="">
+        {% endif %}
+        <!-- Descripción-->
+        <p><br>Proyecto Final consiste de un sitio en el que se registran Videojuegos, Desarrolladores, Jugadores y Desafíos Gamer. Puede utilizar el Menu Lateral para desplazarse por las distintas vistas.</p>
+        <p>Para más información, leer el archivo README dentro del repositorio.</p>
+    </div>
+{% endblock %}

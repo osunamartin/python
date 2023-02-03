@@ -1,0 +1,18 @@
+<!-- Template hijo de padre.html que sirve de landing page para el sitio-->
+{% extends "AppFinal/padre.html" %}
+{% load static %}
+
+{% block dynamicContent %}
+    <!-- Contenido de la página. El contenido varía dependiendo de la view-->
+    <div class="container-fluid">
+        <!-- Titulo y descripcion-->
+        <h1 class="mt-4">Equipos</h1>
+        <h3>Esta es la página de equipos.</h3>
+        <p>Los equipos a participar casual o competitivamente de los desafíos.</p>
+
+        <a class="btn btn-secondary" href="{% url 'EquiposLeer' %}">Leer o Eliminar Equipos</a>
+        <a class="btn btn-secondary" href="{% url 'EquiposBusqueda' %}">Buscar Equipo</a>
+        <a class="btn btn-secondary" href="{% url 'EquiposFormulario' %}">Crear Nuevo Equipo</a>
+        
+    </div>
+{% endblock %}

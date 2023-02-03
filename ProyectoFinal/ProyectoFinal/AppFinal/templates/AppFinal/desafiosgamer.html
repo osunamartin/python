@@ -1,0 +1,17 @@
+<!-- Template hijo de padre.html que funciona de hogar para los Desafios Gamer-->
+{% extends "AppFinal/padre.html" %}
+{% load static %}
+
+{% block dynamicContent %}
+    <!-- Contenido de la página. El contenido varía dependiendo de la view-->
+    <div class="container-fluid">
+        <!-- Título y descripción-->
+        <h1 class="mt-4">Desafios Gamer</h1>
+        <h3>Esta es la página de Desafios Gamer.</h3>
+        <p>Los Desafíos Gamer son creados por tanto Desarrolladores como Jugadores, y consisten de llevar a cabo hitos difíciles dentro del Videojuego con el fin de obtener puntos de experiencia.</p>
+        <!-- Botones-->
+        <a class="btn btn-secondary" href="{% url 'DesafiosGamerLeer' %}">Leer o Eliminar Desafios Gamer</a>
+        <a class="btn btn-secondary" href="{% url 'DesafiosGamerBusqueda' %}">Buscar Desafío Gamer</a>
+        <a class="btn btn-secondary" href="{% url 'DesafiosGamerFormulario' %}">Crear Nuevo Desafío Gamer</a>
+    </div>
+{% endblock %}

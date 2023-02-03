@@ -1,0 +1,21 @@
+<!-- Template hijo de padre.html donde se editan los Desafíos Gamer-->
+{% extends "AppFinal/padre.html" %}
+{% load static %}
+
+{% block dynamicContent %}
+    <!-- Contenido de la página. El contenido varía dependiendo de la view-->
+    <div class="container-fluid">
+        <!-- Boton de retorno-->
+        <br><a class="btn btn-secondary" href="{% url 'DesafiosGamer' %}">Volver a Desafios Gamer</a>
+        <!-- Titulo y descripcion-->
+        <h1 class="mt-4">Editar un Desafío Gamer</h1>
+        <h3>En esta página podes editar un Desafío Gamer.</h3>
+        <p>Ingresá los nuevos datos del Desafío Gamer.</p>
+
+        <!-- Se usa un formulario de Django (más en forms.py) para minimizar el uso de HTML-->
+        <form action="" method="POST">{% csrf_token %}
+            <table>{{ formulario.as_table }}</table><br>
+            <input type="submit" value="Editar">
+        </form>
+    </div>
+{% endblock %}

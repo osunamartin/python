@@ -1,0 +1,24 @@
+<!-- Template hijo de padre.html donde se leen todos los Jugadores-->
+{% extends "AppFinal/padre.html" %}
+{% load static %}
+
+{% block dynamicContent %}
+    <!-- Contenido de la página. El contenido varía dependiendo de la view-->
+    <div class="container-fluid">
+        <!-- Boton de retorno-->
+        <br><a class="btn btn-secondary" href="{% url 'Jugadores' %}">Volver a Jugadores</a>
+        <!-- Titulo y descripción-->
+        <h1 class="mt-4">Leer Jugadores</h1>
+        <h3>Resultados de la lectura</h3><br>
+
+        <!-- Se itera por todos los Desafios Gamer y se los imprime-->
+        {% for jugador in jugadores %}
+            {{jugador}}<br>
+            <button><a href="{% url 'JugadoresEditar' jugador.apodo %}">Editar</a></button>
+            <button><a href="{% url 'JugadoresEliminar' jugador.apodo %}">Eliminar</a></button><br><br>
+        {% endfor %}
+
+        <!-- Boton-->
+        <br><a class="btn btn-secondary" href="{% url 'JugadoresFormulario' %}">Crear Nuevo Jugador</a>
+    </div>
+{% endblock %}

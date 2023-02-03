@@ -1,0 +1,17 @@
+<!-- Template hijo de padre.html que funciona de hogar para los Desarrolladores-->
+{% extends "AppFinal/padre.html" %}
+{% load static %}
+
+{% block dynamicContent %}
+    <!-- Contenido de la página. El contenido varía dependiendo de la view-->
+    <div class="container-fluid">
+        <!-- Titulo y descripcion-->
+        <h1 class="mt-4">Desarrolladores</h1>
+        <h3>Esta es la página de Desarrolladores.</h3>
+        <p>Los Desarrolladores son quienes crean los Videojuegos que juegan los Jugadores.</p>
+        <!-- Botones-->
+        <a class="btn btn-secondary" href="{% url 'DesarrolladoresLeer' %}">Leer o Eliminar Desarrolladores</a>
+        <a class="btn btn-secondary" href="{% url 'DesarrolladoresBusqueda' %}">Buscar Desarrollador</a>
+        <a class="btn btn-secondary" href="{% url 'DesarrolladoresFormulario' %}">Crear Nuevo Desarrollador</a>
+    </div>
+{% endblock %}

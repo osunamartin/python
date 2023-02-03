@@ -1,0 +1,25 @@
+<!-- Template hijo de padre.html donde se busca Jugadores y se imprime los resultados-->
+{% extends "AppFinal/padre.html" %}
+{% load static %}
+
+{% block dynamicContent %}
+    <!-- Contenido de la página. El contenido varía dependiendo de la view-->
+    <div class="container-fluid">
+        <!-- Boton de retorno-->
+        <br><a class="btn btn-secondary" href="{% url 'Jugadores' %}">Volver a Jugadores</a>
+        <!-- Titulo y descripcion-->
+        <h1 class="mt-4">Buscar un Jugador</h1>
+        <h3>Resultados de la búsqueda</h3><br>
+
+        <!-- Se itera por todos los Jugadores y se trae las coincidencias por nombre-->
+        {% if jugadores %}
+            <ul>
+                {% for jugador in jugadores %}
+                    <li>{{jugador}}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <!-- Boton-->
+        <br><a class="btn btn-secondary" href="{% url 'JugadoresFormulario' %}">Crear Nuevo Jugador</a>
+{% endblock %}

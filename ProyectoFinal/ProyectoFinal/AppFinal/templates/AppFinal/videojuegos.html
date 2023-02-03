@@ -1,0 +1,17 @@
+<!-- Template hijo de padre.html que funciona de hogar para los Videojuegos-->
+{% extends "AppFinal/padre.html" %}
+{% load static %}
+
+{% block dynamicContent %}
+    <!-- Contenido de la página. El contenido varía dependiendo de la view-->
+    <div class="container-fluid">
+        <!-- Titulo y descripcion-->
+        <h1 class="mt-4">Videojuegos</h1>
+        <h3>Esta es la página de Videojuegos.</h3>
+        <p>Los Videojuegos son creados por los Desarrolladores y jugados por los Jugadores.</p>
+        <!-- Botones-->
+        <a class="btn btn-secondary" href="{% url 'VideojuegosLeer' %}">Leer o Eliminar Videojuego</a>
+        <a class="btn btn-secondary" href="{% url 'VideojuegosBusqueda' %}">Buscar Videojuego</a>
+        <a class="btn btn-secondary" href="{% url 'VideojuegosFormulario' %}">Crear Nuevo Videojuego</a>
+    </div>
+{% endblock %}

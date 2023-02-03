@@ -1,0 +1,21 @@
+<!-- Template hijo de padre.html donde se crean los Jugadores-->
+{% extends "AppFinal/padre.html" %}
+{% load static %}
+
+{% block dynamicContent %}
+    <!-- Contenido de la página. El contenido varía dependiendo de la view-->
+    <div class="container-fluid">
+        <!-- Boton de retorno-->
+        <br><a class="btn btn-secondary" href="{% url 'Jugadores' %}">Volver a Jugadores</a>
+        <!-- Titulo y descripcion-->
+        <h1 class="mt-4">Crear un nuevo Jugador</h1>
+        <h3>En esta página podes crear un nuevo Jugador.</h3>
+        <p>Ingresá los datos del Jugador.</p>
+
+        <!-- Se usa un formulario de Django (más en forms.py) para minimizar el uso de HTML-->
+        <form action="/AppFinal/jugadoresFormulario" method="POST">{% csrf_token %}
+            <table>{{ formulario.as_table }}</table><br>
+            <input type="submit" value="Crear">
+        </form>
+    </div>
+{% endblock %}

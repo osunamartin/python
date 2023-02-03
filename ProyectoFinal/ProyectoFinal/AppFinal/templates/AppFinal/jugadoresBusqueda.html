@@ -1,0 +1,21 @@
+<!-- Template hijo de padre.html donde se puede buscar Jugadores-->
+{% extends "AppFinal/padre.html" %}
+{% load static %}
+
+{% block dynamicContent %}
+    <!-- Contenido de la página. El contenido varía dependiendo de la view-->
+    <div class="container-fluid">
+        <!-- Boton de retorno-->
+        <br><a class="btn btn-secondary" href="{% url 'Jugadores' %}">Volver a Jugadores</a>
+        <!-- Titulo y descripcion-->
+        <h1 class="mt-4">Buscar un Jugador</h1>
+        <h3>En esta página podes buscar un Jugador particular.</h3>
+        <p>Ingresá el apodo del Jugador que estás buscando.</p>
+
+        <!-- Se lleva a cabo la búsqueda y se muestran los resultados a través de la view jugadoresBusquedaResultado-->
+        <form action="/AppFinal/jugadoresBusquedaResultado/" method="GET">
+            <input type="text" name="apodo">
+            <input type="submit" value="Buscar">
+        </form>
+    </div>
+{% endblock %}

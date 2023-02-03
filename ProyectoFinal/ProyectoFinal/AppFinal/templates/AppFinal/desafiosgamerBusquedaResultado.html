@@ -1,0 +1,25 @@
+<!-- Template hijo de padre.html donde se busca Desafíos Gamer y se imprime los resultados-->
+{% extends "AppFinal/padre.html" %}
+{% load static %}
+
+{% block dynamicContent %}
+    <!-- Contenido de la página. El contenido varía dependiendo de la view-->
+    <div class="container-fluid">
+        <!-- Boton de retorno-->
+        <br><a class="btn btn-secondary" href="{% url 'DesafiosGamer' %}">Volver a Desafios Gamer</a>
+        <!-- Titlo y descripcion-->
+        <h1 class="mt-4">Buscar un Desafio Gamer</h1>
+        <h3>Resultados de la búsqueda</h3><br>
+
+        <!-- Se itera por todos los Desafios Gamer y se trae las coincidencias por nombre-->
+        {% if desafiosgamer %}
+            <ul>
+                {% for desafiogamer in desafiosgamer %}
+                    <li>{{desafiogamer.nombre}}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        
+        <!-- Boton-->
+        <br><a class="btn btn-secondary" href="{% url 'DesafiosGamerFormulario' %}">Crear Nuevo Desafío Gamer</a>
+{% endblock %}

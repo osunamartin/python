@@ -1,0 +1,24 @@
+<!-- Template hijo de padre.html donde se leen todos los Desafios Gamer-->
+{% extends "AppFinal/padre.html" %}
+{% load static %}
+
+{% block dynamicContent %}
+    <!-- Contenido de la página. El contenido varía dependiendo de la view-->
+    <div class="container-fluid">
+        <!-- Boton de retorno-->
+        <br><a class="btn btn-secondary" href="{% url 'DesafiosGamer' %}">Volver a Desafios Gamer</a>
+        <!-- Titulo y descripcion-->
+        <h1 class="mt-4">Leer Desafios Gamer</h1>
+        <h3>Resultados de la lectura</h3><br>
+
+        <!-- Se itera por todos los Desafios Gamer y se los imprime-->
+        {% for desafiogamer in desafiosgamer %}
+            {{desafiogamer}}<br>
+            <button><a href="{% url 'DesafiosGamerEditar' desafiogamer.nombre %}">Editar</a></button>
+            <button><a href="{% url 'DesafiosGamerEliminar' desafiogamer.nombre %}">Eliminar</a></button><br><br>
+        {% endfor %}
+
+        <!-- Boton-->
+        <br><a class="btn btn-secondary" href="{% url 'DesafiosGamerFormulario' %}">Crear Nuevo Desafio Gamer</a>
+    </div>
+{% endblock %}

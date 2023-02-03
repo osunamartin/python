@@ -1,0 +1,21 @@
+<!-- Template hijo de padre.html donde se puede buscar Videojuegos-->
+{% extends "AppFinal/padre.html" %}
+{% load static %}
+
+{% block dynamicContent %}
+    <!-- Contenido de la página. El contenido varía dependiendo de la view-->
+    <div class="container-fluid">
+        <!-- Boton de retorno-->
+        <br><a class="btn btn-secondary" href="{% url 'Videojuegos' %}">Volver a Videojuegos</a>
+        <!-- Titulo y descripción-->
+        <h1 class="mt-4">Buscar un Videojuego</h1>
+        <h3>En esta página podes buscar un Videojuego particular.</h3>
+        <p>Ingresá el nombre del Videojuego que estás buscando.</p>
+
+        <!-- Se lleva a cabo la búsqueda y se muestran los resultados a través de la view videojuegosBusquedaResultado-->
+        <form action="/AppFinal/videojuegosBusquedaResultado/" method="GET">
+            <input type="text" name="nombre">
+            <input type="submit" value="Buscar">
+        </form>
+    </div>
+{% endblock %}

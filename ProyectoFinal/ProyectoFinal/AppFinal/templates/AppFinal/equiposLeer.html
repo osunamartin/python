@@ -1,0 +1,24 @@
+<!-- Template hijo de padre.html donde se leen todos los equipos-->
+{% extends "AppFinal/padre.html" %}
+{% load static %}
+
+{% block dynamicContent %}
+    <!-- Contenido de la página. El contenido varía dependiendo de la view-->
+    <div class="container-fluid">
+        <!-- Boton de retorno-->
+        <br><a class="btn btn-secondary" href="{% url 'Equipos' %}">Volver a Equipos</a>
+        <!-- Titulo y descripcion-->
+        <h1 class="mt-4">Leer Equipos</h1>
+        <h3>Resultados de la lectura</h3><br>
+
+        <!-- Se itera por todos los equipos y se los imprime-->
+        {% for equipo in equipos %}
+            {{equipo}}<br>
+            <button><a href="{% url 'EquiposEditar' equipo.nombre %}">Editar</a></button>
+            <button><a href="{% url 'EquiposEliminar' equipo.nombre %}">Eliminar</a></button><br><br>
+        {% endfor %}
+        
+        <!-- Boton-->
+        <br><a class="btn btn-secondary" href="{% url 'EquiposFormulario' %}">Crear Nuevo Equipo</a>
+    </div>
+{% endblock %}
